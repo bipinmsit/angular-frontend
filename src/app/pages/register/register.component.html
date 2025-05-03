@@ -1,1 +1,46 @@
-<p>register works!</p>
+<div class="login-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="onRegister()">
+    <div class="form-group">
+      <label for="email">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Enter your Username"
+        [(ngModel)]="userData.username"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        [(ngModel)]="userData.password"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        placeholder="Re Enter your password"
+        [(ngModel)]="confirmPassword"
+        required
+        #confirmPasswordField="ngModel"
+      />
+      <div id="passwordNotMatchError"
+        *ngIf="confirmPasswordField.touched && !passwordsMatch()"
+        class="error"
+      >
+        Passwords do not match.
+      </div>
+    </div>
+    <button type="submit" class="btn">Register</button>
+  </form>
+</div>

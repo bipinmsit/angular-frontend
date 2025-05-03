@@ -16,11 +16,3 @@ export const routes: Routes = [
   },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
-
-@NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
-  bootstrap: [],
-})
-export class AppRoutingModule {}
