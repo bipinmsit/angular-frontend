@@ -1,5 +1,6 @@
-<div class="login-container">
+<div class="login-container" *ngIf="!successMessage">
   <h2>Register</h2>
+
   <form (ngSubmit)="onRegister()">
     <div class="form-group">
       <label for="email">Username:</label>
@@ -34,7 +35,8 @@
         required
         #confirmPasswordField="ngModel"
       />
-      <div id="passwordNotMatchError"
+      <div
+        id="passwordNotMatchError"
         *ngIf="confirmPasswordField.touched && !passwordsMatch()"
         class="error"
       >
@@ -44,3 +46,8 @@
     <button type="submit" class="btn">Register</button>
   </form>
 </div>
+
+<div *ngIf="successMessage" class="success-message">
+    <p>{{ successMessage }}</p>
+    <button (click)="navigateToLogin()">Login</button>
+  </div>

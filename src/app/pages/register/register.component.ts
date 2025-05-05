@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../servies/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,19 +18,21 @@ export class RegisterComponent {
   };
 
   confirmPassword: string = '';
+  successMessage: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   passwordsMatch(): boolean {
     return this.userData.password === this.confirmPassword;
   }
 
   onRegister() {
+    console.log('User data:', this.userData);
     if (this.passwordsMatch()) {
       this.authService.register(this.userData).subscribe(
         (response) => {
           console.log('User registered successfully:', response);
-          alert('User registered successfully!');
+          this.successMessage = 'User registered successfully!';
         },
         (error) => {
           console.error('Error registering user:', error);
@@ -37,5 +40,9 @@ export class RegisterComponent {
         }
       );
     }
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
   }
 }

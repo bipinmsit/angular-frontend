@@ -12,3 +12,13 @@ nav {
   margin-left: 10px;
   text-decoration: none;
 }
+
+.logout-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  color: darkblue;
+}
