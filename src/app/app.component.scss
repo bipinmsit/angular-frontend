@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
+.nav-right a {
+  margin-left: 10px;
+  text-decoration: none;
+}
