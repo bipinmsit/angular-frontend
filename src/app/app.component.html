@@ -1,7 +1,9 @@
-<h1>Sample Page</h1>
-<button class="btn btn-primary"><i class="bi bi-0-circle"></i></button>
+<h1>JK Technosoft</h1>
 <nav>
-  <a routerLink="/">Home</a>
+  <div class="nav-left">
+    <a routerLink="/">Home</a>
+    <a routerLink="/dashboard">Dashboard</a>
+  </div>
   <div class="nav-right">
     <ng-container *ngIf="isLoggedIn(); else guestLinks">
       <span>Welcome, {{ getUsername() }}</span>

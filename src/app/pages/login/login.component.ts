@@ -35,7 +35,8 @@ export class LoginComponent {
         localStorage.setItem('username', this.username);
 
         // Redirect to the home page after successful login
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       },
       error: (error) => {
         console.error('Login failed:', error);
